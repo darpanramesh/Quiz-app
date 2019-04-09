@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+.container-login100-form-btn {
+    width: 22%;
+    float: left;
+    margin-left: 1%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .login100-form-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+    border-radius: 10px;
+  
+    /* font-family: Poppins-Medium; */
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .login100-form-btn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    background: #54aebd;
+    opacity: 0;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  .login100-form-btn:hover:before {
+    opacity: 1;
+  }
+    .link{
+        text-transform: capitalize;
+        text-decoration: none;
+        color:black;
+        /* font-weight: bold; */
+        font-size: 1.5em;
+    }
+    h1{
+        color: white;
+        margin: auto;
+        margin-top: 2%;
+        width:80%;
+        text-align: center;
+        background:rgb(84, 174,189);
+        padding: 15px 0;
+        border-radius: 5px;
+    }
+    #form{
+        margin-top: 2%;
+        margin-left:35%;
+    }
+    .text{
+        margin-bottom: 0.5%;
+        width: 50%;
+        font-size: 1.5em;
+        padding: 10px;
+        border-bottom: 1px solid white;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        border-right: 2px solid white;
+    }
+    .text1{
+        margin-left: 3%;
+    }
+    #p1,#p2,#p3,#p4{
+        color:black;
+    }
+    #form span{
+        font-size: 1.1em;
+    }
+    #main1{
+        display: none;
+    }
+    #middle{
+        display: none;
+    }
+    #div1{
+        font-size: 2.5em;
+        margin-top: 2%;
+        text-align: center;
+    }
+    #userName{
+        text-transform: capitalize;
+    }
+    #reTake{
+        color:white;
+        background:black;
+        padding: 1%;
+        margin-top: 2.5%;
+        font-size: 1.5em;
+        border: 1px solid #54aebd;
+        margin-left: 80%;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #reTake:hover{
+        background: #54aebd;
+    }
+    #link{
+        margin-left: 75%;
+    }
+    @media only screen and (max-width: 640px) {
+    #link {
+        margin-left: 34%;  
+        font-size: 1.2em;   
+  }
+  #time{
+      font-size: 1em;
+  }
+  .text{
+      width:100%;
+  }
+  #form{
+      margin-left: 20%;
+  }
+  #div1{
+      font-size: 1em;
+  }
+  #reTake{
+        color:white;
+        background:black;
+        padding: 2%;
+        margin-top: 2.5%;
+        font-size: 1.2em;
+        border: 1px solid #54aebd;
+        margin-left: 75%;
+        border-radius: 10px;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 568px) {
+    #link {
+        margin-left: 28%;  
+        font-size: 1.2em;   
+  }
+  #time{
+      font-size: 1em;
+  }
+  .text{
+      width:100%;
+  }
+  #form{
+      margin-left: 20%;
+  }
+  #div1{
+      font-size: 1em;
+  }
+  #reTake{
+        color:white;
+        background:black;
+        padding: 2%;
+        margin-top: 2.5%;
+        font-size: 1.2em;
+        border: 1px solid #54aebd;
+        margin-left: 75%;
+        border-radius: 10px;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 600px) {
+    #link {
+        margin-left: 62%;  
+  }
+  #div1{
+      font-size: 1.5em;
+  }
+}
+@media only screen and (min-width: 800px) {
+    #link {
+        margin-left: 75%;  
+  }
+  #div1{
+      font-size: 1.5em;
+  }
+}
+</style>
+</head>
+<body>
+    <header>
+       <div style="background: #54aebd;padding: 0.5%;border-radius: 10px;font-size: 1.5em;">
+           <a href="#" id="time" class="link"> Quiz App</a>
+           <a href="#"  id="link" onclick="logout()" class="link"> LogOut</a>
+       </div>
+    </header>
+    <div id="div1" ><span>Hello MR: </span> <span id="userName"></span><span> Welcome to Thar Boys Quiz</span> </div>
+    <!-- <button id="start" onclick="start()">Start Quiz</button> -->
+    <div class="container-login100-form-btn m-t-17">
+        <button id="start" style="margin-left: 200%; text-align: center;margin-top: 2%;padding: 5% 10%;font-size: 20px;"  onclick="start()"  class="login100-form-btn">
+          Start
+        </button>
+    </div>
+    <div id="main1">
+        <h1>Let's Start Quiz</h1>
+        <div id="form">
+        <input type="text" id="input1" class="text" placeholder="Add question"><br>
+        <input type="radio" id="opt1" name="opt1" class="text1" placeholder="Option1"><span id="option1"></span>  <br>
+        <input type="radio" id="opt2" name="opt1" class="text1" placeholder="Option2"><span id="option2"></span><br>
+        <input type="radio" id="opt3" name="opt1" class="text1" placeholder="Option3"><span id="option3"></span><br>
+        <input type="radio" id="opt4" name="opt1" class="text1" placeholder="Option4"><span id="option4"></span><br>
+        <!-- <input type="text" id="correct" class="text" placeholder="Correct Answer"><br> -->
+        <div id="main" class="container-login100-form-btn m-t-17">
+            <button style="margin-left: 50%;"  onclick="next()" id="btn" class="login100-form-btn">
+              Next
+            </button>
+        </div>
+    </div>
+    </div>
+    <div id="middle">
+    </div>
+</body>
+<script>
+var time;
+var sec =0
+
+function start(){
+    document.getElementById("main1").style.display = "block";
+    document.getElementById("start").style.display = "none";
+    document.getElementById("div1").style.display = "none";
+
+    
+//Timer
+sec = 60;
+time = setInterval(timer,1000);
+
+function timer(){
+    document.getElementById("time").innerHTML = sec + "sec left";
+    sec--;
+    if(sec == -1){
+        alert("Time Out");
+        clearInterval(time);
+        var mainDiv = document.getElementById("main1");
+        mainDiv.style.display = "none";
+        var midDiv = document.getElementById("middle");
+        midDiv.style.display = "block";
+        document.getElementById("div1").style.display = "block";
+        document.getElementById("time").innerHTML = "Quiz App";
+        if(marks >= 3){
+            var h1 = document.createElement("h1");
+            var text = document.createTextNode("Congratulation! You're Passed");
+            h1.setAttribute("id","h1");
+            h1.appendChild(text);
+            midDiv.appendChild(h1);
+            var h2 = document.createElement("h1");
+            var text2 = document.createTextNode("Your Score is "+marks * 10);
+            h2.appendChild(text2);
+            midDiv.appendChild(h2);
+
+            var button = document.createElement("button");
+            var text3 = document.createTextNode("Exit");
+            button.setAttribute("id","reTake");
+            button.setAttribute("onclick","exit()");
+            button.appendChild(text3);
+            midDiv.appendChild(button);
+
+            // var button = document.createElement("button");
+            // var text3 = document.createTextNode("Exit");
+            // button.setAttribute("id","exit");
+            // button.appendChild(text3);
+            // midDiv.appendChild(button);
+        }
+        else{
+            var h1 = document.createElement("h1");
+            var text = document.createTextNode("Sorry! You're failed");
+            h1.setAttribute("style","color:red");
+            h1.appendChild(text);
+            midDiv.appendChild(h1);
+            var h2 = document.createElement("h1");
+            var text2 = document.createTextNode("Your Score is "+marks * 10);
+            h2.appendChild(text2);
+            midDiv.appendChild(h2);
+
+            var button = document.createElement("button");
+            var text3 = document.createTextNode("Exit");
+            button.setAttribute("id","reTake");
+            button.setAttribute("onclick","exit()");
+            button.appendChild(text3);
+            midDiv.appendChild(button);
+
+            // var button = document.createElement("button");
+            // var text3 = document.createTextNode("Exit");
+            // button.setAttribute("id","exit");
+            // button.appendChild(text3);
+            // midDiv.appendChild(button);
+        }
+
+
+    }
+}
+}
+
+
+
+
+    var count = 0;
+    var marks = 0;
+    var question = localStorage.getItem("quiz");
+    question = JSON.parse(question);
+    var user = localStorage.getItem("Current User");
+    user = JSON.parse(user);
+    document.getElementById("userName").innerHTML = user.email.slice(0,-10);
+
+    function logout(){
+        window.location.href = "../index.html";
+        localStorage.removeItem("Current User");
+    }
+    document.getElementById("input1").value = question[count].question;
+    document.getElementById("option1").innerHTML = question[count].option1;
+    document.getElementById("option2").innerHTML = question[count].option2;
+    document.getElementById("option3").innerHTML = question[count].option3;
+    document.getElementById("option4").innerHTML = question[count].option4;
+ 
+    document.getElementById("opt1").value = question[count].option1;
+    document.getElementById("opt2").value = question[count].option2;
+    document.getElementById("opt3").value = question[count].option3;
+    document.getElementById("opt4").value = question[count].option4;
+    // console.log(question[0].correctAns+"  "+ ui)
+    function next(){
+    var x = document.querySelector("input[type=radio]:checked");
+    console.log(x);
+    x.checked = false;
+    var flag = false;
+    if(x.value === question[count].correctAns){
+        flag = true;
+
+        marks = (100/question.length)+marks;
+        console.log(marks)
+    }
+    if(flag === false){
+        console.log("Wrong");
+    }
+    if(count < question.length-1){
+        count++
+    document.getElementById("input1").value = question[count].question;
+    document.getElementById("option1").innerHTML = question[count].option1;
+    document.getElementById("option2").innerHTML = question[count].option2;
+    document.getElementById("option3").innerHTML = question[count].option3;
+    document.getElementById("option4").innerHTML = question[count].option4;
+ 
+    document.getElementById("opt1").value = question[count].option1;
+    document.getElementById("opt2").value = question[count].option2;
+    document.getElementById("opt3").value = question[count].option3;
+    document.getElementById("opt4").value = question[count].option4;
+
+    }
+    else{
+        var mainDiv = document.getElementById("main1");
+        mainDiv.style.display = "none";
+        var midDiv = document.getElementById("middle");
+        midDiv.style.display = "block";
+        document.getElementById("div1").style.display = "block";
+        document.getElementById("time").innerHTML = "Quiz App";
+        if(marks >= 50){
+            var h1 = document.createElement("h1");
+            var text = document.createTextNode("Congratulation! You're Passed");
+            h1.appendChild(text);
+            midDiv.appendChild(h1);
+            var h2 = document.createElement("h1");
+            var text2 = document.createTextNode("Your Score is "+Math.round(marks)+"%");
+            h2.appendChild(text2);
+            midDiv.appendChild(h2);
+
+            var button = document.createElement("button");
+            var text3 = document.createTextNode("Exit");
+            button.setAttribute("id","reTake");
+            button.setAttribute("onclick","exit()");
+            button.appendChild(text3);
+            midDiv.appendChild(button);
+
+            // var button = document.createElement("button");
+            // var text3 = document.createTextNode("Exit");
+            // button.setAttribute("id","exit");
+            // button.appendChild(text3);
+            // midDiv.appendChild(button);
+        }
+        else{
+            var h1 = document.createElement("h1");
+            var text = document.createTextNode("Sorry! You're failed");
+            h1.setAttribute("style","color:red");
+            h1.appendChild(text);
+            midDiv.appendChild(h1);
+            var h2 = document.createElement("h1");
+            var text2 = document.createTextNode("Your Score is "+Math.round(marks)+"%");
+            h2.appendChild(text2);
+            midDiv.appendChild(h2);
+
+            var button = document.createElement("button");
+            var text3 = document.createTextNode("Exit");
+            button.setAttribute("id","reTake");
+            button.setAttribute("onclick","exit()");
+            button.appendChild(text3);
+            midDiv.appendChild(button);
+        }
+        clearInterval(time);
+    }
+    // console.log(marks * 10)
+    console.log(Math.round(marks))
+// console.log(marks * 10)
+//     console.log(marks)
+}
+
+
+function exit(){
+    window.location.href = "quiz.html"
+}
+
+// function reTake(){
+//     document.getElementById("middle").style.display = "none";
+//     document.getElementById("main1").style.display = "block"
+//     document.getElementById("div1").style.display = "none";
+
+// //timer
+// sec = 60;
+// time = setInterval(timer,1000);
+
+// function timer(){
+//     document.getElementById("time").innerHTML = sec + "Time left";
+//     sec--;
+//     if(sec == -1){
+//         alert("Time Out");
+//         clearInterval(time);
+//         var mainDiv = document.getElementById("main1");
+//         mainDiv.style.display = "none";
+//         var midDiv = document.getElementById("middle");
+//         midDiv.style.display = "block";
+//         document.getElementById("div1").style.display = "block";
+//         document.getElementById("time").innerHTML = "Quiz App";
+//         if(marks >= 50){
+//             var h1 = document.createElement("h1");
+//             var text = document.createTextNode("Congratulation! You're Passed");
+//             h1.setAttribute("id","h1");
+//             h1.appendChild(text);
+//             midDiv.appendChild(h1);
+//             var h2 = document.createElement("h1");
+//             var text2 = document.createTextNode("Your Score is "+Math.round(marks)+"%");
+//             h2.appendChild(text2);
+//             midDiv.appendChild(h2);
+
+//             var button = document.createElement("button");
+//             var text3 = document.createTextNode("Re Take");
+//             button.setAttribute("id","reTake");
+//             button.setAttribute("onclick","reTake()");
+//             button.appendChild(text3);
+//             midDiv.appendChild(button);
+
+//             // var button = document.createElement("button");
+//             // var text3 = document.createTextNode("Exit");
+//             // button.setAttribute("id","exit");
+//             // button.appendChild(text3);
+//             // midDiv.appendChild(button);
+//         }
+//         else{
+//             var h1 = document.createElement("h1");
+//             var text = document.createTextNode("Sorry! You're failed");
+//             h1.setAttribute("style","color:red");
+//             h1.appendChild(text);
+//             midDiv.appendChild(h1);
+//             var h2 = document.createElement("h1");
+//             var text2 = document.createTextNode("Your Score is "+Math.round(marks)+"%");
+//             h2.appendChild(text2);
+//             midDiv.appendChild(h2);
+
+//             var button = document.createElement("button");
+//             var text3 = document.createTextNode("Re Take");
+//             button.setAttribute("id","reTake");
+//             button.setAttribute("onclick","reTake()");
+//             button.appendChild(text3);
+//             midDiv.appendChild(button);
+//         }
+//     }
+// }
+// }
+
+
+
+
+
+
+
+</script>
+</html>

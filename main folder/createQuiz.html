@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+.container-login100-form-btn {
+    width: 22%;
+    float: left;
+    margin-left: 10%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .login100-form-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+    border-radius: 10px;
+  
+    /* font-family: Poppins-Medium; */
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+  
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .login100-form-btn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    background: #54aebd;
+    opacity: 0;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  
+  .login100-form-btn:hover:before {
+    opacity: 1;
+  }
+    .link{
+        text-transform: uppercase;
+        text-decoration: none;
+        color:black;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    h1{
+        color: white;
+        margin: auto;
+        margin-top: 2%;
+        width:80%;
+        text-align: center;
+        background:rgb(84, 174,189);
+        padding: 15px 0;
+        border-radius: 5px;
+    }
+    #form{
+        margin-top: 2%;
+        margin-left:25%;
+    }
+    .text{
+        margin-bottom: 0.5%;
+        width: 65%;
+        font-size: 15px;
+        padding: 10px;
+        border-bottom: 1px solid;
+        border-top: 2px solid white;
+        border-left: 2px solid white;
+        border-right: 2px solid white;
+    }
+    #p1,#p2,#p3,#p4{
+        color:black;
+    }
+</style>
+</head>
+<body>
+    <header>
+       <div>
+           <a href="#" class="link"> QUIZ App</a>
+       </div>
+    </header>
+    <div>
+        <h1>Admin can create Quiz</h1>
+        <div id="form">
+        <input type="text" id="input1" class="text" placeholder="Add question"><br>
+        <input type="text" id="opt1" class="text" placeholder="Option1"><br>
+        <input type="text" id="opt2" class="text" placeholder="Option2"><br>
+        <input type="text" id="opt3" class="text" placeholder="Option3"><br>
+        <input type="text" id="opt4" class="text" placeholder="Option4"><br>
+        <input type="text" id="correct" class="text" placeholder="Correct Answer"><br>
+        <div id="main" class="container-login100-form-btn m-t-17">
+            <button  onclick="addBtn()" id="btn" class="login100-form-btn">
+                Add Quiz
+            </button>
+        </div>
+    
+        <div id="main" style="margin-left: 2%;" class="container-login100-form-btn m-t-17">
+            <button onclick="exit()" id="btn2" class="login100-form-btn">
+                Exit Quiz
+            </button>
+        </div>
+    </div>
+    
+    
+    </div>
+</div>
+</body>
+<script>
+
+var array = [];
+function addBtn(){
+    var ques1 = document.getElementById('input1').value;
+    var opt1 = document.getElementById('opt1').value;
+    var opt2 = document.getElementById('opt2').value;
+    var opt3 = document.getElementById('opt3').value;
+    var opt4 = document.getElementById('opt4').value;
+    var correctAns = document.getElementById('correct').value;
+
+function AddValue(q1,op1,op2,op3,op4,correctAns){
+    this.question = q1;
+    this.option1 = op1;
+    this.option2 = op2;
+    this.option3 = op3;
+    this.option4 = op4;
+    this.correctAns = correctAns;
+}
+
+var result = new AddValue(ques1,opt1,opt2,opt3,opt4,correctAns);
+
+array.push(result);
+console.log(array);
+localStorage.setItem("quiz",JSON.stringify(array));
+document.getElementById('input1').value = "";
+document.getElementById('opt1').value = "";
+document.getElementById('opt2').value = "";
+document.getElementById('opt3').value = "";
+document.getElementById('opt4').value = "";
+document.getElementById('correct').value = "";
+
+}
+function exit(){
+    window.location.href = "../index.html"
+}
+
+
+
+
+
+
+
+
+</script>
+</html>

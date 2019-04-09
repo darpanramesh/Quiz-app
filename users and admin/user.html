@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  background-color: #54aebd;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #54aebd;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+    </style>
+</head>
+<body >
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">user</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input style="margin-left: 30%;" type="button" onclick="sign()"  value="Sign Up" class="btn btn-info btn-md">
+                                <input style="margin-left: 2%;" type="button" onclick="login()"  value="Log in" class="btn btn-info btn-md" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    alert("If you're not Rigester please Signup then login");
+    var email = document.getElementById("username");
+    var password = document.getElementById("password");
+    
+    
+    function sign(){
+        window.location.href = "signup.html"
+
+    }
+    function login(){
+        if(password.value.length < 8){
+           alert("Please include 8 Character in Password");
+        }
+        else{
+     
+        var user = localStorage.getItem("allUser's");
+        console.log(user);
+    
+        var flag = "no";
+        var data ={
+            email : email.value,
+             password: password.value,
+        } 
+        if(user === null){
+            user = [];
+        }
+        else{
+            user = JSON.parse(user);
+            console.log(user);
+        }
+    
+        for(var i=0; i<user.length; i++){
+            if(user[i].email === email.value && user[i].password === password.value){
+                flag = "yes";
+            }
+        }
+        if(flag === "no"){
+            alert("Email invalid");
+            email.value = "";
+            password.value = "";
+        }
+        else{
+            for(var i=0; i< email.value.length; i++){
+            if(email.value.slice(i, i+4) === ".com"){
+            alert("login Successfully");
+            email.value = "";
+    var data2= JSON.stringify(data);
+            password.value = "";
+    localStorage.setItem("Current User", data2);
+         window.location.href = "../main folder/quiz.html"       
+        }
+        }
+        
+        }
+    }
+    
+    }
+</script>
+</html>
